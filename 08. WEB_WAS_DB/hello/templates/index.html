@@ -1,0 +1,29 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Flask</title>
+    </head>
+    <body>
+        <p>Hello Flask!!! {{user}}</p><hr>
+        <input id='name' type='text' value='peter'>
+        <input id='age' type='text' value='27'>
+        <button id='request'>Request</button>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            $(document).ready(function() {
+                $('#request').on('click', function() {
+                    var params = {
+                        name: $('#name').val(),
+                        age: $('#age').val()
+                    };
+                    console.log(params);
+                    var url = '/people?' + $.param(params);
+                    console.log(url);
+                    $.getJSON(url, function(response){
+                        console.log(response); // hello.py의 people 함수에서 return한 값을 가져옴
+                    })
+                })
+            })
+        </script>
+    </body>
+</html>
