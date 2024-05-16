@@ -3,7 +3,7 @@ from flask import *
 import pymongo
 
 app = Flask(__name__)
-uri = 'mongodb://kt:ktpw@43.200.2.172:27017/?authSource=admin'
+# uri = 'mongodb://@/?authSource=admin'
 client = pymongo.MongoClient(uri)
 
 @app.route('/')
